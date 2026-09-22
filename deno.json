@@ -22,6 +22,7 @@
   "tasks": {
     "new": "deno run -A tools/scripts/new-mod.ts",
     "build": "deno task --members build",
-    "clean": "deno task --members clean"
+    "clean": "deno task --members clean",
+    "pack": "deno task --members pack"
   }
 }
