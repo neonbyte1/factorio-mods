@@ -14,6 +14,8 @@ Click the scanner to choose a mode:
 
 Switching the scanner off clears its output and pauses scanning.
 
+![ghost-scanner-menu](https://i.imgur.com/ZUzYlmT.png)
+
 ## What gets reported
 
 Each scanner can toggle these individually:
