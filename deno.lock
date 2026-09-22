@@ -4,6 +4,7 @@
     "jsr:@quentinadam/assert@~0.1.18": "0.1.18",
     "jsr:@quentinadam/ensure@~0.1.6": "0.1.6",
     "jsr:@quentinadam/uint8array-extension@~0.1.19": "0.1.19",
+    "jsr:@quentinadam/zip@*": "0.1.17",
     "jsr:@quentinadam/zip@~0.1.17": "0.1.17",
     "jsr:@std/assert@1": "1.0.19",
     "jsr:@std/cli@1": "1.0.32",
