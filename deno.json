@@ -1,0 +1,14 @@
+{
+  "workspace": [],
+  "nodeModulesDir": "auto",
+  "imports": {
+    "typescript": "npm:typescript@6.0.2",
+    "typescript-to-lua": "npm:typescript-to-lua@1.37.1",
+    "typed-factorio": "npm:typed-factorio@4.2.0",
+    "lua-types": "npm:lua-types@2.14.1",
+    "@std/assert": "jsr:@std/assert@1",
+    "@std/fs": "jsr:@std/fs@1",
+    "@std/path": "jsr:@std/path@1",
+    "@std/cli": "jsr:@std/cli@1"
+  }
+}
