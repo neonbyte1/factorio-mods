@@ -1,5 +1,7 @@
 {
-  "workspace": [],
+  "workspace": [
+    "./foo"
+  ],
   "nodeModulesDir": "auto",
   "imports": {
     "typescript": "npm:typescript@6.0.2",
@@ -10,5 +12,10 @@
     "@std/fs": "jsr:@std/fs@1",
     "@std/path": "jsr:@std/path@1",
     "@std/cli": "jsr:@std/cli@1"
+  },
+  "tasks": {
+    "new": "deno run -A tools/scripts/new-mod.ts",
+    "build": "deno task --members build",
+    "clean": "deno task --members clean"
   }
 }
