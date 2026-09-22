@@ -1,6 +1,6 @@
 {
   "workspace": [
-    "./foo"
+    "./nb1-ghost-scanner"
   ],
   "nodeModulesDir": "auto",
   "imports": {
