@@ -1,0 +1,15 @@
+{
+  "name": "nb1-simple-bot-start",
+  "version": "1.0.0",
+  "title": "Simple Bot Start",
+  "author": "neonbyte1",
+  "contact": "",
+  "homepage": "https://github.com/neonbyte1/factorio-mods",
+  "description": "Start with an unarmored power armor carrying two personal roboports and 50 free, fast construction robots.",
+  "license": "MIT",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1",
+    "! JaredsSimpleBotStart"
+  ]
+}
