@@ -6,15 +6,23 @@
  * .lua files at the mod root because `require` maps `foo.bar` to `foo/bar.lua`),
  * preserves optional asset trees, then emits build/<name>_<version>.zip.
  *
+ * Required at the mod root: info.json, changelog.txt, LICENSE
+ *
  * Optional trees included when present at the mod root:
  *   locale/  migrations/  graphics/  sound/  scenarios/  campaigns/  tutorials/
  *
  * Optional loose files included when present at the mod root:
- *   thumbnail.png  changelog.txt  README.md  LICENSE
+ *   thumbnail.png
+ *
+ * Symlinks are resolved: each mod's LICENSE links to the repository-root
+ * LICENSE, and the archive receives the target's content.
+ *
+ * Anything else stays out of the archive, notably README.md and release.json:
+ * they are mod portal metadata consumed by publish-mod.ts.
  */
+import * as zip from "@quentinadam/zip";
 import { exists, walk } from "@std/fs";
 import { dirname, join, relative, SEPARATOR } from "@std/path";
-import * as zip from "@quentinadam/zip";
 
 interface Info {
   name: string;
@@ -30,12 +38,8 @@ const OPTIONAL_TREES: readonly string[] = [
   "campaigns",
   "tutorials",
 ];
-const OPTIONAL_FILES: readonly string[] = [
-  "thumbnail.png",
-  "changelog.txt",
-  "README.md",
-  "LICENSE",
-];
+const REQUIRED_FILES: readonly string[] = ["changelog.txt", "LICENSE"];
+const OPTIONAL_FILES: readonly string[] = ["thumbnail.png"];
 
 const modDir = Deno.cwd();
 
@@ -54,12 +58,21 @@ if (!(await exists("dist", { isDirectory: true }))) {
   Deno.exit(1);
 }
 
+for (const file of REQUIRED_FILES) {
+  // exists() stats through symlinks, so a dangling LICENSE link fails here.
+  if (!(await exists(file, { isFile: true }))) {
+    console.error(`no ${file} in ${modDir}; every release must ship one`);
+    Deno.exit(1);
+  }
+}
+
 const archiveRoot = `${info.name}_${info.version}`;
 const outPath = join(modDir, "build", `${archiveRoot}.zip`);
 
 const entries: { name: string; data: Uint8Array<ArrayBuffer> }[] = [];
 
 await addFile("info.json", "info.json");
+for (const file of REQUIRED_FILES) await addFile(file, file);
 await addTree("dist", ""); // tstl output flattened to archive root
 for (const tree of OPTIONAL_TREES) await addTree(tree, tree);
 for (const file of OPTIONAL_FILES) {

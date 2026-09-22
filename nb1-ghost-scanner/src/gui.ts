@@ -7,22 +7,16 @@ import type {
   PlayerIndex,
   UnitNumber,
 } from "factorio:runtime";
+import { clearCombinator, getScannerBehavior } from "./control/combinator.ts";
 import {
   AreaSelectorItemName,
   GuiNames,
   LocaleKeys,
   TagKeys,
 } from "./names.ts";
-import { clearCombinator, getScannerBehavior } from "./control/combinator.ts";
 import { drawOverlayFor } from "./overlay.ts";
 import { clearScanState } from "./scan.ts";
-import type {
-  FilterKey,
-  ScanMode,
-  ScannerFilters,
-  ScannerRecord,
-  Storage,
-} from "./types.ts";
+import type { FilterKey, ScanMode, ScannerRecord, Storage } from "./types.ts";
 
 declare const storage: Storage;
 

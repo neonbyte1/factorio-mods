@@ -5,7 +5,9 @@
  *                        [--factorio 2.0] [--description "…"]
  *
  * Creates <repo>/<name>/ with a tstl project targeting the Factorio runtime
- * stage and registers it in the root deno.json workspaces array.
+ * stage, a changelog.txt, a LICENSE symlink to the repository-root LICENSE,
+ * the mod portal metadata (release.json + README.md, see publish-mod.ts), and
+ * registers it in the root deno.json workspaces array.
  */
 import { parseArgs } from "@std/cli/parse-args";
 import { ensureDir, exists } from "@std/fs";
@@ -54,6 +56,29 @@ const info = {
 };
 await writeJson(join(modDir, "info.json"), info);
 
+await Deno.writeTextFile(
+  join(modDir, "changelog.txt"),
+  `${"-".repeat(99)}
+Version: ${flags.version}
+Date: ${new Date().toISOString().slice(0, 10)}
+  Added:
+    - Initial version
+`,
+);
+
+// Relative with "/" so the link committed to git resolves on every checkout.
+await Deno.symlink("../LICENSE", join(modDir, "LICENSE"));
+
+await writeJson(join(modDir, "release.json"), {
+  category: "no-category",
+  tags: [],
+});
+
+await Deno.writeTextFile(
+  join(modDir, "README.md"),
+  `# ${title}\n\n${description}\n`,
+);
+
 await writeJson(join(modDir, "deno.json"), {
   tasks: {
     build: "deno run -A npm:typescript-to-lua/tstl",
@@ -97,7 +122,8 @@ Registered in workspace: ./${name}
 Next steps:
   cd ${name}
   deno task build          # emits dist/control.lua
-  # copy info.json + dist/*.lua into your Factorio mods folder`,
+  # copy info.json + dist/*.lua into your Factorio mods folder
+  # before the first release: set category/tags in release.json, write README.md`,
 );
 
 async function writeJson(path: string, value: unknown): Promise<void> {
