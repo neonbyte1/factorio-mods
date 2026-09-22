@@ -1,0 +1,10 @@
+node_modules/
+.deno/
+
+*/dist/
+dist/
+
+*.zip
+.idea/
+.DS_Store
+*.swp
