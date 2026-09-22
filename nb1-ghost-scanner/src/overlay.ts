@@ -30,19 +30,15 @@ function readPlayerColor(
   setting: string,
   fallback: Color,
 ): Color {
-  const raw = settings.get_player_settings(player)[setting];
+  const value = settings.get_player_settings(player)[setting]?.value;
+  const { r = 0, g = 0, b = 0, a = 1 } = isColor(value) ? value : fallback;
 
-  if (raw?.value && isColor(raw.value)) {
-    const { r, g, b, a } = raw.value;
-    return {
-      r,
-      g,
-      b,
-      a: a ?? 1.0,
-    };
-  }
-
-  return fallback;
+  return {
+    r: r * a,
+    g: g * a,
+    b: b * a,
+    a,
+  };
 }
 
 export function clearOverlay(playerIndex: PlayerIndex): void {
