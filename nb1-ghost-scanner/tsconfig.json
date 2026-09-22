@@ -1,0 +1,23 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "types": [
+      "typed-factorio/runtime",
+      "typed-factorio/prototype",
+      "typed-factorio/settings"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "tstl": {
+    "luaTarget": "5.2",
+    "noImplicitSelf": true,
+    "buildMode": "default",
+    "luaLibImport": "require"
+  }
+}

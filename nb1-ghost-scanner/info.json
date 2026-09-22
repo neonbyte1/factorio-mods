@@ -1,0 +1,19 @@
+{
+  "name": "nb1-ghost-scanner",
+  "version": "1.0.0",
+  "title": "Ghost Scanner",
+  "author": "neonbyte1",
+  "contact": "",
+  "homepage": "https://github.com/neonbyte1/factorio-mods",
+  "description": "Combinator that outputs construction ghost requests.",
+  "license": "MIT",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1",
+    "! GhostScanner",
+    "! GhostScanner2",
+    "! GhostScanner4",
+    "! ghost-combinator",
+    "! ghost-reader"
+  ]
+}
