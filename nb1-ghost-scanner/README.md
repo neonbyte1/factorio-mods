@@ -1,20 +1,16 @@
 # Ghost Scanner
 
-A combinator that outputs the items needed to build construction ghosts as
-circuit-network signals. Wire it to a requester chest or train logic and let
-your factory supply its own construction sites.
+A combinator that outputs the items needed to build construction ghosts as circuit-network signals.
+Wire it to a requester chest or train logic and let your factory supply its own construction sites.
 
-Unlocked by **Advanced combinators**. Recipe: 5 copper cable, 5 electronic
-circuits.
+Unlocked by **Advanced combinators**. Recipe: 5 copper cable, 5 electronic circuits.
 
 ## Scan modes
 
 Click the scanner to choose a mode:
 
 - **Normal**: scans the logistic network the scanner is placed in.
-- **Area**: scans a custom rectangle. Press **Select area** to get a selection
-  tool, then left-click and drag on the map. The area is highlighted while you
-  hover over the scanner.
+- **Area**: scans a custom rectangle. Press **Select area** to get a selection tool, then left-click and drag on the map. The area is highlighted while you hover over the scanner.
 
 Switching the scanner off clears its output and pauses scanning.
 
@@ -48,5 +44,10 @@ Per-player settings: border and fill color of the Area overlay.
 
 ## Compatibility
 
-Cannot be enabled together with GhostScanner, GhostScanner2, GhostScanner4,
-ghost-combinator, or ghost-reader.
+This mod is based on [GhostScanner4](https://mods.factorio.com/mod/GhostScanner4) but has been improved and cannot be enabled together with
+
+- [GhostScanner](https://mods.factorio.com/mod/GhostScanner)
+- [GhostScanner2](https://mods.factorio.com/mod/GhostScanner2)
+- [GhostScanner4](https://mods.factorio.com/mod/GhostScanner4)
+- [ghost-combinator](https://mods.factorio.com/mod/ghost-combinator) - may works, but shouldn't be used together
+- [ghost-reader](https://mods.factorio.com/mod/ghost-reader) - may works, but shouldn't be used together. Also, this mod has pretty poor performance, so I wouldn't recommend it at all.
