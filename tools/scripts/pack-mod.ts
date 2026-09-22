@@ -57,7 +57,7 @@ if (!(await exists("dist", { isDirectory: true }))) {
 const archiveRoot = `${info.name}_${info.version}`;
 const outPath = join(modDir, "build", `${archiveRoot}.zip`);
 
-const entries: { name: string; data: Uint8Array }[] = [];
+const entries: { name: string; data: Uint8Array<ArrayBuffer> }[] = [];
 
 await addFile("info.json", "info.json");
 await addTree("dist", ""); // tstl output flattened to archive root
@@ -73,7 +73,10 @@ console.log(`Packed ${entries.length} file(s) → ${relative(modDir, outPath)}`)
 
 async function addFile(src: string, archivePath: string): Promise<void> {
   const data = await Deno.readFile(src);
-  entries.push({ name: `${archiveRoot}/${archivePath}`, data });
+  entries.push({
+    name: `${archiveRoot}/${archivePath}`,
+    data: data as Uint8Array<ArrayBuffer>,
+  });
 }
 
 async function addTree(srcDir: string, archiveDir: string): Promise<void> {
