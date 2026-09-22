@@ -1,6 +1,10 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@quentinadam/assert@~0.1.18": "0.1.18",
+    "jsr:@quentinadam/ensure@~0.1.6": "0.1.6",
+    "jsr:@quentinadam/uint8array-extension@~0.1.19": "0.1.19",
+    "jsr:@quentinadam/zip@~0.1.17": "0.1.17",
     "jsr:@std/assert@1": "1.0.19",
     "jsr:@std/cli@1": "1.0.32",
     "jsr:@std/fmt@^1.0.10": "1.0.10",
@@ -16,6 +20,29 @@
     "npm:typescript@6.0.2": "6.0.2"
   },
   "jsr": {
+    "@quentinadam/assert@0.1.18": {
+      "integrity": "33a484ad66cab3d5453f69730d49c05bded72b7ff1bd54b5cc3fc2327fe314ca"
+    },
+    "@quentinadam/ensure@0.1.6": {
+      "integrity": "67ac14be280165486613bab54c619bad1783e569601584c3ad63536f08610818",
+      "dependencies": [
+        "jsr:@quentinadam/assert"
+      ]
+    },
+    "@quentinadam/uint8array-extension@0.1.19": {
+      "integrity": "485b6b7fbc265502c11ccbe151f90f240b59399a40f9e3cef2003e36f950249a",
+      "dependencies": [
+        "jsr:@quentinadam/assert"
+      ]
+    },
+    "@quentinadam/zip@0.1.17": {
+      "integrity": "437d187f6f0161cc6e1575e90266cc10e10c753999756fb13e87d80f56d10251",
+      "dependencies": [
+        "jsr:@quentinadam/assert",
+        "jsr:@quentinadam/ensure",
+        "jsr:@quentinadam/uint8array-extension"
+      ]
+    },
     "@std/assert@1.0.19": {
       "integrity": "eaada96ee120cb980bc47e040f82814d786fe8162ecc53c91d8df60b8755991e",
       "dependencies": [
@@ -135,6 +162,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@quentinadam/zip@~0.1.17",
       "jsr:@std/assert@1",
       "jsr:@std/cli@1",
       "jsr:@std/fs@1",
