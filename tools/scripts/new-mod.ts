@@ -57,7 +57,8 @@ await writeJson(join(modDir, "info.json"), info);
 await writeJson(join(modDir, "deno.json"), {
   tasks: {
     build: "deno run -A npm:typescript-to-lua/tstl",
-    clean: "rm -rf dist",
+    clean: "rm -rf dist build",
+    pack: "deno task build && deno run -A ../tools/scripts/pack-mod.ts",
   },
 });
 
