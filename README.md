@@ -12,6 +12,9 @@
 
 ## Mods
 
+- [Far Reach SE Respawn Fix](nb1-far-reach-se-compat) keeps
+  [Far Reach](https://mods.factorio.com/mod/far-reach) bonuses after dying with
+  Space Exploration, without reconnecting.
 - [Ghost Scanner](nb1-ghost-scanner) is a combinator that turns construction
   ghosts into circuit signals, so your factory can supply its own building
   sites.

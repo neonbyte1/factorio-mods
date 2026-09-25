@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [
+      "typed-factorio/runtime"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

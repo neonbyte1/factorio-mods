@@ -1,0 +1,16 @@
+{
+  "name": "nb1-far-reach-se-compat",
+  "version": "1.0.0",
+  "title": "Far Reach SE Respawn Fix",
+  "author": "neonbyte1",
+  "contact": "",
+  "homepage": "https://github.com/neonbyte1/factorio-mods",
+  "description": "Keeps Far Reach bonuses after dying with Space Exploration, without reconnecting.",
+  "license": "MIT",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1",
+    "far-reach >= 2.1.0",
+    "space-exploration"
+  ]
+}

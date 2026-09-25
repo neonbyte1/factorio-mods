@@ -1,5 +1,6 @@
 {
   "workspace": [
+    "./nb1-far-reach-se-compat",
     "./nb1-ghost-scanner",
     "./nb1-simple-bot-start"
   ],
